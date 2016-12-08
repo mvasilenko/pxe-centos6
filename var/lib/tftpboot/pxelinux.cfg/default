@@ -1,0 +1,9 @@
+default menu.c32
+prompt 0
+timeout 30
+MENU TITLE PXE Menu
+LABEL centos6_i386
+MENU LABEL CentOS 6_i386
+KERNEL /networkboot/vmlinuz
+APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.1.91/pub ks=ftp://192.168.1.91/pub/centos6-i386.cfg  ksdevice=bootif
+IPAPPEND 2
