@@ -4,6 +4,6 @@ timeout 30
 MENU TITLE LinuxTechi.com PXE Menu
 LABEL centos6_i386_mvts
 MENU LABEL CentOS_6_i386_mvts
-KERNEL /networkboot/vmlinuz
-APPEND initrd=/networkboot/initrd.img inst.repo=ftp://192.168.1.91/pub ks=ftp://192.168.1.91/pub/centos6-i386-mvts.cfg  ksdevice=bootif
+KERNEL /networkboot/centos6/i386/vmlinuz
+APPEND initrd=/networkboot/centos6/i386/initrd.img inst.repo=ftp://192.168.1.91/pub/centos/6/i386 ks=ftp://192.168.1.91/pub/centos6-i386-mvts.cfg  ksdevice=bootif
 IPAPPEND 2
