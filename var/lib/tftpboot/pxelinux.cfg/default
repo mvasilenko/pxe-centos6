@@ -2,6 +2,13 @@ default menu.c32
 prompt 0
 timeout 30
 MENU TITLE PXE Menu
+
+label auto-ubuntu-16.04
+        menu label ^Ubuntu 16.04 automated install
+        kernel ubuntu-installer/amd64/linux
+        append auto=true priority=critical vga=788 initrd=ubuntu-installer/amd64/initrd.gz preseed/url=tftp://192.168.1.91/ubuntu-16.04-preseed.cfg preseed/interactive=false
+
+
 LABEL centos6_i386
 MENU LABEL CentOS_6_i386
 KERNEL /networkboot/centos/6/i386/vmlinuz
@@ -13,3 +20,4 @@ MENU LABEL CentOS_6_i386_mvts
 KERNEL /networkboot/centos/6/i386/vmlinuz
 APPEND initrd=/networkboot/centos/6/i386/initrd.img inst.repo=ftp://192.168.1.91/pub/centos/6/i386 ks=ftp://192.168.1.91/pub/centos6-i386-mvts.cfg  ksdevice=bootif
 IPAPPEND 2
+
