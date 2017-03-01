@@ -11,13 +11,13 @@ label auto-ubuntu-16.04
 
 LABEL centos6_i386
 MENU LABEL CentOS_6_i386
-KERNEL /networkboot/centos/6/i386/vmlinuz
-APPEND initrd=/networkboot/centos/6/i386/initrd.img inst.repo=ftp://192.168.1.91/pub/centos/6/i386 ks=ftp://192.168.1.91/pub/centos6-i386.cfg  ksdevice=bootif
+KERNEL /centos/6/i386/vmlinuz
+APPEND initrd=/centos/6/i386/initrd.img inst.repo=ftp://192.168.1.91/pub/centos/6/i386 ks=ftp://192.168.1.91/pub/centos6-i386.cfg  ksdevice=bootif
 IPAPPEND 2
 
 LABEL centos6_i386-mvts
 MENU LABEL CentOS_6_i386_mvts
-KERNEL /networkboot/centos/6/i386/vmlinuz
-APPEND initrd=/networkboot/centos/6/i386/initrd.img inst.repo=ftp://192.168.1.91/pub/centos/6/i386 ks=ftp://192.168.1.91/pub/centos6-i386-mvts.cfg  ksdevice=bootif
+KERNEL /centos/6/i386/vmlinuz
+APPEND initrd=/centos/6/i386/initrd.img inst.repo=ftp://192.168.1.91/pub/centos/6/i386 ks=ftp://192.168.1.91/pub/centos6-i386-mvts.cfg  ksdevice=bootif
 IPAPPEND 2
 

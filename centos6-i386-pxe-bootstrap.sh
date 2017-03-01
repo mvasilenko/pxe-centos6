@@ -31,9 +31,9 @@ if [ ! -d /var/ftp/pub/centos/6/i386 ];then
     cd /mnt && cp -av * /var/ftp/pub/centos/6/i386
 
     # Copy kernel & initrd needed for network boot
-    mkdir -p /var/lib/tftpboot/networkboot/centos/6/i386
-    cp /mnt/images/pxeboot/vmlinuz /var/lib/tftpboot/networkboot/centos/6/i386/
-    cp /mnt/images/pxeboot/initrd.img /var/lib/tftpboot/networkboot/centos/6/i386/
+    mkdir -p /var/lib/tftpboot/centos/6/i386
+    cp /mnt/images/pxeboot/vmlinuz /var/lib/tftpboot/centos/6/i386/
+    cp /mnt/images/pxeboot/initrd.img /var/lib/tftpboot/centos/6/i386/
     umount /mnt
 
     # Mount minimal install

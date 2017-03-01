@@ -1,0 +1,22 @@
+default menu.c32
+MENU TITLE Network Boot Menu
+prompt 0
+timeout 1200
+
+label Boot from first hard disk
+localboot 0x80
+
+LABEL ubuntu-amd64
+    menu label Ubuntu amd64 automated install
+    kernel ubuntu-installer/amd64/linux
+    append auto=true priority=critical vga=788 initrd=ubuntu-installer/amd64/initrd.gz preseed/url=tftp://192.168.1.91/ubuntu-amd64-preseed.cfg preseed/interactive=false
+
+menu begin
+menu title Ubuntu 
+
+label ..
+menu exit
+
+
+
+
