@@ -11,11 +11,6 @@ LABEL ubuntu-amd64
     kernel ubuntu-installer/amd64/linux
     append auto=true priority=critical vga=788 initrd=ubuntu-installer/amd64/initrd.gz preseed/url=tftp://192.168.1.91/ubuntu-amd64-preseed.cfg preseed/interactive=false
 
-menu begin
-menu title Ubuntu 
-
-label ..
-menu exit
 
 
 
