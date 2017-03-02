@@ -4,7 +4,7 @@ yum -y install dhcp tftp tftp-server syslinux vsftpd xinetd openssl
 # Copy dhcp config
 cp -v etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf
 # Activate tftp
-sed -i '/	disable			= yes/c\	disable			= no' /etc/xinetd.d/tftp
+sed -i sed 's/disable[ \t]*=[ \t]*yes/disable\t\t= no/g' /etc/xinetd.d/tftp
 # Copy system PXE files
 cp -v /usr/share/syslinux/pxelinux.0 /var/lib/tftpboot
 cp -v /usr/share/syslinux/menu.c32 /var/lib/tftpboot
