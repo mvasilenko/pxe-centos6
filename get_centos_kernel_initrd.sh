@@ -3,7 +3,7 @@
 # list Ubuntu releases, download kernel & initrd for each release and place it under tftp dir
 
 tftpboot="/var/lib/tftpboot"
-centos_install_url="ftp://192.168.1.91/pub"
+centos_install_url="http://ftp.colocall.net/pub/centos"
 kickstart_url="ftp://192.168.1.91/pub"
 
 which curl >/dev/null 2>&1
@@ -36,8 +36,8 @@ do
 
 	echo "LABEL CentOS $release $arch 
 	MENU LABEL CentOS $release $arch
-	KERNEL centos/$release/$arch/linux
-	APPEND initrd=centos/$release/$arch/initrd.img inst.repo=http://mirror.centos.org/centos-$release/$release/$arch ks=$centos_install_url/centos-$release-$arch.cfg  ksdevice=bootif
+	KERNEL centos/$release/$arch/vmlinuz
+	APPEND initrd=centos/$release/$arch/initrd.img ks=$kickstart_url/centos.cfg  ksdevice=bootif method=$centos_install_url/$release/os/$arch
 	">>$tftpboot/default.template.centos
     done
 done
