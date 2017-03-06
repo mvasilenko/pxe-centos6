@@ -51,7 +51,6 @@ ROOTPASS=`openssl passwd -1 Pxe@123#`
 pwd
 cp var/ftp/pub/* /var/ftp/pub
 # change password at kickstart file
-#sed -i 's:rootpw Pxe123:rootpw --iscrypted '"$ROOTPASS"':g' /var/ftp/pub/centos6-i386-mvts.cfg
 #sed -i 's:rootpw Pxe123:rootpw --iscrypted '"$ROOTPASS"':g' /var/ftp/pub/centos6-i386.cfg
 
 # Start services

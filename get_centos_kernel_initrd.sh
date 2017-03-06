@@ -37,7 +37,7 @@ do
 	echo "LABEL CentOS $release $arch 
 	MENU LABEL CentOS $release $arch
 	KERNEL centos/$release/$arch/vmlinuz
-	APPEND initrd=centos/$release/$arch/initrd.img ks=$kickstart_url/centos.cfg  ksdevice=bootif method=$centos_install_url/$release/os/$arch
+	APPEND initrd=centos/$release/$arch/initrd.img ks=$kickstart_url/ks-centos.cfg  ksdevice=bootif method=$centos_install_url/$release/os/$arch
 	">>$tftpboot/default.template.centos
     done
 done

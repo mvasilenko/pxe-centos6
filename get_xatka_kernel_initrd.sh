@@ -23,8 +23,8 @@ echo $host_list
 
 for site in $host_list;do 
     site_upper=`echo $site|awk '{print toupper($0)}'`
-    echo "LABEL $site_upper mvts CentOS $release $arch
-    MENU LABEL $site_upper mvts CentOS $release $arch
+    echo "LABEL $site_upper CentOS $release $arch
+    MENU LABEL $site_upper CentOS $release $arch
     KERNEL centos/$release/$arch/vmlinuz
     APPEND initrd=centos/$release/$arch/initrd.img ks=$kickstart_url  ksdevice=bootif method=$centos_install_url/$release/os/$arch xatka_host=$site
     ">>$tftpboot/default.template.xatka
