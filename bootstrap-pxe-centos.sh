@@ -1,7 +1,7 @@
 #!/bin/bash
 # default root password is Pxe@123#
 ROOTPASS=`openssl passwd -1 Pxe@123#`
-
+DOWNLOAD_CENTOS_IMAGE=false
 # Install needed packages
 yum -y install dhcp tftp tftp-server syslinux vsftpd xinetd openssl wget
 # Copy dhcp config
@@ -19,7 +19,7 @@ mkdir -p /var/lib/tftpboot/pxelinux.cfg
 # Custom PXE menu file
 cp -v var/lib/tftpboot/pxelinux.cfg/* /var/lib/tftpboot/pxelinux.cfg
 # Check Centos image existence
-if [ ! -d /var/ftp/pub/centos/6/i386 ];then
+if [ ! -d /var/ftp/pub/centos/6/i386 ] && [ $DOWNLOAD_CENTOS_IMAGE ];then
     # Get CentOS image
     if [ ! -s /tmp/CentOS-6.8-i386-minimal.iso ]; then
 	wget -O /tmp/CentOS-6.8-i386-minimal.iso http://ftp.colocall.net/pub/centos/6/isos/i386/CentOS-6.8-i386-minimal.iso
