@@ -60,10 +60,13 @@ service dhcpd restart
 service vsftpd restart
 
 # TODO - modify iptables rules to open specific ports
-sudo service iptables save
-iptables -I INPUT 1 –p udp --dport 67 -j ACCEPT
-iptables -I INPUT 1 –p udp --dport 68 -j ACCEPT
-iptables -I INPUT 1 -p tcp -m state --state NEW --dport 21 -j ACCEPT
-#iptables -F INPUT
-#iptables -F OUTPUT
+service iptables save
+iptables -I INPUT -p udp --dport 67:68 -j ACCEPT
+iptables -I INPUT -p tcp -m state --state NEW --dport 21 -j ACCEPT
 
+# download CentOS kernel & initrd
+./get_centos_kernel_initrd.sh
+# download Ubuntu kernel & initrd
+./get_ubuntu_kernel_initrd.sh
+# generate pxe boot menu
+./generate_default_pxelinux_cfg.sh
