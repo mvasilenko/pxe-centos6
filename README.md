@@ -4,4 +4,4 @@ Simple PXE layout for fully automated install Ubuntu & CentOS 6/7 with some post
 
 Please review bootstrap script before begin
 
-You will need to change IP address in /etc/dhcpd.conf from 192.168.1.91 to your actual IP
+You will need to change IP address in /etc/dhcpd.conf and in get_centos_kernel_initrd.sh from 192.168.1.91 to your actual IP

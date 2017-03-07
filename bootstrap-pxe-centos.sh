@@ -17,9 +17,12 @@ cp -v /usr/share/syslinux/chain.c32 /var/lib/tftpboot
 # Directory for PXE menu file
 mkdir -p /var/lib/tftpboot/pxelinux.cfg
 # Custom PXE menu file
+cp -v var/lib/tftpboot/* /var/lib/tftpboot
 cp -v var/lib/tftpboot/pxelinux.cfg/* /var/lib/tftpboot/pxelinux.cfg
 # Check Centos image existence
-if [ ! -d /var/ftp/pub/centos/6/i386 ] && [ $DOWNLOAD_CENTOS_IMAGE ];then
+if [ ! -d /var/ftp/pub/centos/6/i386 ] && [ "$DOWNLOAD_CENTOS_IMAGE" = true ];then
+    echo TRUE
+    exit
     # Get CentOS image
     if [ ! -s /tmp/CentOS-6.8-i386-minimal.iso ]; then
 	wget -O /tmp/CentOS-6.8-i386-minimal.iso http://ftp.colocall.net/pub/centos/6/isos/i386/CentOS-6.8-i386-minimal.iso
