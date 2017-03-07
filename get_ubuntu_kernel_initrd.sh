@@ -26,7 +26,7 @@ for release in $releases_list
 do
     release_descr=`grep href /tmp/releases-ubuntu-tmp.txt|head -n $cdimage_pos|grep $release|cut -d">" -f3|cut -d"<" -f1|head -n1`
     iso=`curl -s http://releases.ubuntu.com/$release/|grep server|grep "iso<"|grep i386|cut -d">" -f3|cut -d"<" -f1`
-    for arch in amd64 i386
+    for arch in amd64 #i386
     do
     echo "release=$release description=$release_descr arch=$arch"
     mkdir -p $tftpboot/ubuntu/$release/$arch
