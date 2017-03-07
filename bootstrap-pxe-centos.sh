@@ -1,10 +1,13 @@
 #!/bin/bash
+# default root password is Pxe@123#
+ROOTPASS=`openssl passwd -1 Pxe@123#`
+
 # Install needed packages
-yum -y install dhcp tftp tftp-server syslinux vsftpd xinetd openssl
+yum -y install dhcp tftp tftp-server syslinux vsftpd xinetd openssl wget
 # Copy dhcp config
 cp -v etc/dhcp/dhcpd.conf /etc/dhcp/dhcpd.conf
 # Activate tftp
-sed -i sed 's/disable[ \t]*=[ \t]*yes/disable\t\t= no/g' /etc/xinetd.d/tftp
+sed -i 's/disable[ \t]*=[ \t]*yes/disable\t\t\t= no/g' /etc/xinetd.d/tftp
 # Copy system PXE files
 cp -v /usr/share/syslinux/pxelinux.0 /var/lib/tftpboot
 cp -v /usr/share/syslinux/menu.c32 /var/lib/tftpboot
@@ -45,13 +48,11 @@ if [ ! -d /var/ftp/pub/centos/6/i386 ];then
 
 fi
 
-# root password
-ROOTPASS=`openssl passwd -1 Pxe@123#`
 # Copy kickstart files
 pwd
 cp var/ftp/pub/* /var/ftp/pub
 # change password at kickstart file
-#sed -i 's:rootpw Pxe123:rootpw --iscrypted '"$ROOTPASS"':g' /var/ftp/pub/centos6-i386.cfg
+sed -i 's:rootpw Pxe123:rootpw --iscrypted '"$ROOTPASS"':g' /var/ftp/pub/ks-centos.cfg
 
 # Start services
 service xinetd restart
